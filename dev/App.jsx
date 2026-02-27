@@ -12,10 +12,24 @@ export default function App() {
   const [selectedOption, setSelectedOption] = useState(options[0]);
 
   return (
-    <MenuSelect
-      options={options}
-      selectedOption={selectedOption}
-      setSelectedOption={setSelectedOption}
-    />
+    <>
+      <MenuSelect
+        options={options}
+        selectedOption={selectedOption}
+        setSelectedOption={setSelectedOption}
+      />
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in ultricies
+        nisi. Aliquam magna urna, iaculis vel ante hendrerit, sollicitudin ornare nulla.
+        Vivamus vitae pretium nunc. Vivamus pellentesque sagittis leo et semper. Aliquam
+        vel mi vel magna pharetra auctor. Praesent sed nulla sit amet ligula porttitor
+        bibendum ut consectetur lacus. Etiam est metus, sollicitudin vel dignissim non,
+        mollis in metus. Pellentesque tristique sagittis blandit. Etiam in ex mattis,
+        congue lacus at, auctor orci. In volutpat euismod erat, non bibendum arcu pretium
+        et. Integer ut ex lacus. Nulla porttitor massa at imperdiet tristique. Sed
+        aliquam, ante vitae dictum ultrices, nulla diam vehicula nisi, quis elementum
+        dolor erat vel diam.
+      </p>
+    </>
   );
 }

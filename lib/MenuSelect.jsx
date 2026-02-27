@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function MenuSelec({ options, selectedOption, setSelectedOption }) {
   const [isOpen, setIsOpen] = useState(false);
+  const wrapperRef = useRef(null);
 
   function handleBtnClick() {
     setIsOpen((prevValue) => !prevValue);
@@ -12,8 +13,28 @@ export default function MenuSelec({ options, selectedOption, setSelectedOption }
     setIsOpen(false);
   }
 
+  function handleDocumentClick(e) {
+    const target = e.target;
+    if (!wrapperRef.current.contains(target)) {
+      setIsOpen(false);
+    }
+  }
+
+  function handleKeyDown(e) {
+    const key = e.key;
+
+    if (key === "Escape" && isOpen) {
+      setIsOpen(false);
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener("click", handleDocumentClick);
+    return () => document.removeEventListener("click", handleDocumentClick);
+  }, []);
+
   return (
-    <div>
+    <div ref={wrapperRef} onKeyDown={handleKeyDown}>
       <button
         onClick={handleBtnClick}
         aria-expanded={isOpen}
