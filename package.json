@@ -12,7 +12,8 @@
     ".": {
       "import": "./dist/menu-select.js",
       "require": "./dist/menu-select.umd.cjs"
-    }
+    },
+    "./style.css": "./dist/menu-select.css"
   },
   "scripts": {
     "dev": "vite",
