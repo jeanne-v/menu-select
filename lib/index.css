@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+    --color-*: initial;
+    --color-white: #ffffff;
+    --color-light-middle-grey: #C5C1C8;
+    --color-dark-grey: #262626;
+    --color-blue: #4552FF;
+    --font-lato: "Lato", sans-serif;
+}
+
+@layer base {
+    body {
+        font-family: var(--font-lato);
+        color: var(--color-dark-grey);
+        line-height: 1.25;
+    }
+}
