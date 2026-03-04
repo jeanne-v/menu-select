@@ -88,7 +88,7 @@ export default function MenuSelec({
         <div
           role="listbox"
           id="listbox"
-          className="border-l border-r border-b border-light-middle-grey absolute left-0 top-10 bg-white w-full rounded-b-sm"
+          className="border-l border-r border-b border-light-middle-grey absolute left-0 top-10 bg-white w-full rounded-b-sm z-999"
         >
           {options.map((option, index) => {
             const isSelectedOption = selectedOption.value === option.value;
