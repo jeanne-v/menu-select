@@ -12,7 +12,7 @@ export default function App() {
   const [selectedOption, setSelectedOption] = useState(options[0]);
 
   return (
-    <main className="pt-10 pb-10 max-w-md m-auto">
+    <main>
       <p id="department-label">Select a department</p>
       <MenuSelect
         options={options}
@@ -20,7 +20,7 @@ export default function App() {
         setSelectedOption={setSelectedOption}
         labelledby="department-label"
       />
-      <p className="mt-4">
+      <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in ultricies
         nisi. Aliquam magna urna, iaculis vel ante hendrerit, sollicitudin ornare nulla.
         Vivamus vitae pretium nunc. Vivamus pellentesque sagittis leo et semper. Aliquam

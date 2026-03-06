@@ -1,12 +1,15 @@
 import { useState, useEffect, useRef } from "react";
-import "./index.css";
 import chevron from "./assets/chevron.svg";
+import clsx from "clsx";
+import styles from "./MenuSelect.module.css";
 
 export default function MenuSelec({
   options,
   selectedOption,
   setSelectedOption,
   labelledby = null,
+  focusedOptionBgColor = "#4552FF",
+  focusedOptionTextColor = "#ffffff",
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [focusedOptionIndex, setFocusedOptionIndex] = useState(
@@ -68,7 +71,11 @@ export default function MenuSelec({
   }, []);
 
   return (
-    <div ref={wrapperRef} onKeyDown={handleKeyDown} className="relative">
+    <div
+      ref={wrapperRef}
+      onKeyDown={handleKeyDown}
+      className={clsx(styles.wrapper, isOpen && styles.open)}
+    >
       <button
         onClick={handleBtnClick}
         aria-expanded={isOpen}
@@ -79,20 +86,20 @@ export default function MenuSelec({
         type="button"
         role="combobox"
         data-value={selectedOption.value}
-        className={`p-2 cursor-pointer w-full flex justify-between items-center h-10 border border-light-middle-grey ${isOpen ? "rounded-t-sm" : "rounded-sm"}`}
+        className={styles.button}
       >
         <span>{selectedOption.text}</span>
-        <img alt="" src={chevron} className={`h-4 ${isOpen ? "rotate-180" : ""}`} />
+        <img alt="" src={chevron} className={styles.icon} />
       </button>
       {isOpen && (
-        <div
-          role="listbox"
-          id="listbox"
-          className="border-l border-r border-b border-light-middle-grey absolute left-0 top-10 bg-white w-full rounded-b-sm z-999"
-        >
+        <div role="listbox" id="listbox" className={styles.listbox}>
           {options.map((option, index) => {
             const isSelectedOption = selectedOption.value === option.value;
             const isFocusedOption = options[focusedOptionIndex].value === option.value;
+            const additionalStyles = isFocusedOption
+              ? { backgroundColor: focusedOptionBgColor, color: focusedOptionTextColor }
+              : {};
+
             return (
               <div
                 role="option"
@@ -102,7 +109,8 @@ export default function MenuSelec({
                 key={`${index}-${option.value}`}
                 onClick={() => handleOptionClick(option)}
                 onMouseEnter={() => handleOptionMouseEnter(index)}
-                className={`p-2 cursor-pointer ${isFocusedOption ? "bg-blue text-white" : ""}`}
+                className={styles.option}
+                style={additionalStyles}
               >
                 {option.text}
               </div>
