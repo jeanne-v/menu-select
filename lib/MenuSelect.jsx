@@ -1,9 +1,9 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useId } from "react";
 import chevron from "./assets/chevron.svg";
 import clsx from "clsx";
 import styles from "./MenuSelect.module.css";
 
-export default function MenuSelec({
+export default function MenuSelect({
   options,
   selectedOption,
   setSelectedOption,
@@ -16,6 +16,8 @@ export default function MenuSelec({
     options.findIndex((option) => option.value === selectedOption.value),
   );
   const wrapperRef = useRef(null);
+
+  const listBoxId = useId();
 
   function handleBtnClick() {
     setIsOpen((prevValue) => !prevValue);
@@ -80,7 +82,7 @@ export default function MenuSelec({
         onClick={handleBtnClick}
         aria-expanded={isOpen}
         aria-haspopup="listbox"
-        aria-controls="listbox"
+        aria-controls={listBoxId}
         aria-activedescendant={isOpen ? options[focusedOptionIndex].value : null}
         aria-labelledby={labelledby ? labelledby : null}
         type="button"
@@ -92,7 +94,7 @@ export default function MenuSelec({
         <img alt="" src={chevron} className={styles.icon} />
       </button>
       {isOpen && (
-        <div role="listbox" id="listbox" className={styles.listbox}>
+        <div role="listbox" id={listBoxId} className={styles.listbox}>
           {options.map((option, index) => {
             const isSelectedOption = selectedOption.value === option.value;
             const isFocusedOption = options[focusedOptionIndex].value === option.value;
