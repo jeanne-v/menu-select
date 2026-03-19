@@ -10,6 +10,7 @@ export default function MenuSelect({
   labelledby = null,
   focusedOptionBgColor = "#4552FF",
   focusedOptionTextColor = "#ffffff",
+  size = "medium",
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [focusedOptionIndex, setFocusedOptionIndex] = useState(
@@ -76,7 +77,7 @@ export default function MenuSelect({
     <div
       ref={wrapperRef}
       onKeyDown={handleKeyDown}
-      className={clsx(styles.wrapper, isOpen && styles.open)}
+      className={clsx(styles.wrapper, isOpen && styles.open, styles[size])}
     >
       <button
         onClick={handleBtnClick}

@@ -9,15 +9,16 @@ export default function App() {
     { text: "Human Resources", value: "Human Resources" },
     { text: "Legal", value: "Legal" },
   ];
-  const [selectedOption, setSelectedOption] = useState(options[0]);
+  const [selectedOption1, setSelectedOption1] = useState(options[0]);
+  const [selectedOption2, setSelectedOption2] = useState(options[0]);
 
   return (
     <main>
       <p id="department-label">Select a department</p>
       <MenuSelect
         options={options}
-        selectedOption={selectedOption}
-        setSelectedOption={setSelectedOption}
+        selectedOption={selectedOption1}
+        setSelectedOption={setSelectedOption1}
         labelledby="department-label"
       />
       <p>
@@ -32,6 +33,13 @@ export default function App() {
         aliquam, ante vitae dictum ultrices, nulla diam vehicula nisi, quis elementum
         dolor erat vel diam.
       </p>
+      <MenuSelect
+        options={options}
+        selectedOption={selectedOption2}
+        setSelectedOption={setSelectedOption2}
+        labelledby="department-label"
+        size="small"
+      />
     </main>
   );
 }

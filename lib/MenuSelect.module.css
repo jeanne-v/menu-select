@@ -11,8 +11,18 @@
     font-family: "Lato", sans-serif;
 }
 
+.medium {
+    --padding: 8px;
+    --height: 40px;
+}
+
+.small {
+    --padding: 4px;
+    --height: 30px;
+}
+
 .button {
-    padding: 8px;
+    padding: var(--padding);
     border: 1px solid var(--border-color);
     border-radius: 4px;
     cursor: pointer;
@@ -20,7 +30,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 40px;
+    height: var(--height);
     background-color: var(--bg-color);
     font-size: 1rem;
 }
@@ -40,7 +50,7 @@
 .listbox {
     position: absolute;
     left: 0;
-    top: 40px;
+    top: var(--height);
     z-index: 999;
     width: 100%;
     border-left: 1px solid;
@@ -52,6 +62,6 @@
 }
 
 .option {
-    padding: 8px;
+    padding: var(--padding);
     cursor: pointer;
 }
