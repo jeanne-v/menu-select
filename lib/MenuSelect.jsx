@@ -19,7 +19,7 @@ export default function MenuSelect({
   );
   const wrapperRef = useRef(null);
 
-  const listBoxId = useId();
+  const id = useId();
 
   function handleBtnClick() {
     setIsOpen((prevValue) => !prevValue);
@@ -84,8 +84,8 @@ export default function MenuSelect({
         onClick={handleBtnClick}
         aria-expanded={isOpen}
         aria-haspopup="listbox"
-        aria-controls={listBoxId}
-        aria-activedescendant={isOpen ? options[focusedOptionIndex].value : null}
+        aria-controls={id}
+        aria-activedescendant={isOpen ? id + options[focusedOptionIndex].value : null}
         aria-labelledby={labelledby ? labelledby : null}
         type="button"
         role="combobox"
@@ -96,7 +96,7 @@ export default function MenuSelect({
         <img alt="" src={chevron} className={styles.icon} />
       </button>
       {isOpen && (
-        <div role="listbox" id={listBoxId} className={styles.listbox}>
+        <div role="listbox" id={id} className={styles.listbox}>
           {options.map((option, index) => {
             const isSelectedOption = selectedOption.value === option.value;
             const isFocusedOption = options[focusedOptionIndex].value === option.value;
@@ -109,8 +109,8 @@ export default function MenuSelect({
                 role="option"
                 aria-selected={isSelectedOption}
                 data-value={option.value}
-                id={option.value}
-                key={`${index}-${option.value}`}
+                id={id + option.value}
+                key={option.value}
                 onClick={() => handleOptionClick(option)}
                 onMouseEnter={() => handleOptionMouseEnter(index)}
                 className={styles.option}
