@@ -1,16 +1,46 @@
-# React + Vite
+# Menu Select
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a custom dropdown React component.
 
-Currently, two official plugins are available:
+## Example
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Here is an example of basic usage :
 
-## React Compiler
+```
+import { useState } from "react";
+import { MenuSelect } from "menu-select";
+import "menu-select/style.css";
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+function App() {
+  const languagesOptions = [
+    { text: "French", value: "fr" },
+    { text: "English", value: "en" },
+    { text: "Chinese", value: "zh" },
+  ];
+  const [selectedLanguageOption, setSelectedLanguageOption] = useState(
+    languagesOptions[0],
+  );
 
-## Expanding the ESLint configuration
+  return (
+      <MenuSelect
+        options={languagesOptions}
+        selectedOption={selectedLanguageOption}
+        setSelectedOption={setSelectedLanguageOption}
+      />
+  );
+}
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+
+## Configuration
+
+| **Propname**           | **Description**                                                                                                              |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| options                | Possible dropdown options. Must be an array of objects with each a unique value property and a text property.                |
+| selectedOption         | The selected option. Must be an object held in state with a value property and text property.                                |
+| setSelectedOption      | State setter function for the selectedOption value.                                                                          |
+| labelledby             | Optionnal. The id of the element that will label the dropdown. Default is null.                                              |
+| focusedOptionBgColor   | Optionnal. The background color of the currently focused option. Default is "#4552FF".                                       |
+| focusedOptionTextColor | Optionnal. The text color of the currently focused option. Default is "#FFFFFF".                                             |
+| size                   | Optionnal. Configures the size variant of the dropdown. Possible values are "small" and "medium". Default value is "medium". |
+| className              | Optionnal. Additional classes to add to the custom dropdown &lt;div> container element.                                      |
