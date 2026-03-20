@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { MenuSelect } from "../lib/index";
+import "./App.css";
 
 export default function App() {
   const options = [
@@ -39,6 +40,7 @@ export default function App() {
         setSelectedOption={setSelectedOption2}
         labelledby="department-label"
         size="small"
+        className="uppercase"
       />
     </main>
   );
