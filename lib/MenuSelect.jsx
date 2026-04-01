@@ -6,7 +6,7 @@ import styles from "./MenuSelect.module.css";
 export default function MenuSelect({
   options,
   selectedOption,
-  setSelectedOption,
+  onOptionSelect,
   labelledby = null,
   focusedOptionBgColor = "#4552FF",
   focusedOptionTextColor = "#ffffff",
@@ -26,7 +26,7 @@ export default function MenuSelect({
   }
 
   function handleOptionClick(option) {
-    setSelectedOption(option);
+    onOptionSelect(option);
     setIsOpen(false);
   }
 
@@ -47,9 +47,9 @@ export default function MenuSelect({
     if (isOpen && key === "Escape") {
       setIsOpen(false);
     } else if (isOpen && key === "Enter") {
-      setSelectedOption(options[focusedOptionIndex]);
+      onOptionSelect(options[focusedOptionIndex]);
     } else if (isOpen && key === " ") {
-      setSelectedOption(options[focusedOptionIndex]);
+      onOptionSelect(options[focusedOptionIndex]);
     } else if (isOpen && key === "ArrowUp") {
       handleArrowKeyDownWhenOpen("ArrowUp");
     } else if (isOpen && key === "ArrowDown") {
@@ -89,7 +89,6 @@ export default function MenuSelect({
         aria-labelledby={labelledby ? labelledby : null}
         type="button"
         role="combobox"
-        data-value={selectedOption.value}
         className={styles.button}
       >
         <span>{selectedOption.text}</span>
@@ -108,7 +107,6 @@ export default function MenuSelect({
               <div
                 role="option"
                 aria-selected={isSelectedOption}
-                data-value={option.value}
                 id={id + option.value}
                 key={option.value}
                 onClick={() => handleOptionClick(option)}

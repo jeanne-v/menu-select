@@ -19,7 +19,7 @@ export default function App() {
       <MenuSelect
         options={options}
         selectedOption={selectedOption1}
-        setSelectedOption={setSelectedOption1}
+        onOptionSelect={setSelectedOption1}
         labelledby="department-label"
       />
       <p>
@@ -37,7 +37,7 @@ export default function App() {
       <MenuSelect
         options={options}
         selectedOption={selectedOption2}
-        setSelectedOption={setSelectedOption2}
+        onOptionSelect={setSelectedOption2}
         labelledby="department-label"
         size="small"
         className="uppercase"

@@ -29,7 +29,7 @@ function App() {
     <MenuSelect
       options={options}
       selectedOption={selectedOption}
-      setSelectedOption={setSelectedOption}
+      onOptionSelect={setSelectedOption}
     />
   );
 }
@@ -41,7 +41,7 @@ function App() {
 | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | options                | Possible dropdown options. Must be an array of objects each with a unique `value` property and a `text` property.                 |
 | selectedOption         | The selected option. Must be an object held in state with a `value` property and `text` property.                                 |
-| setSelectedOption      | State setter function for the selectedOption value.                                                                               |
+| onOptionSelect         | Function that will be called when an option is selected. Will be called with the selected option object.                          |
 | labelledby             | Optional. The id of the element that will label the dropdown. Default is `null`.                                                  |
 | focusedOptionBgColor   | Optional. The background color of the currently focused option. Default is `"#4552FF"`.                                           |
 | focusedOptionTextColor | Optional. The text color of the currently focused option. Default is `"#FFFFFF"`.                                                 |
