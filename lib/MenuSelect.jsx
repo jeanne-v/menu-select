@@ -79,6 +79,7 @@ export default function MenuSelect({
       ref={wrapperRef}
       onKeyDown={handleKeyDown}
       className={clsx(styles.wrapper, isOpen && styles.open, styles[size], className)}
+      data-testid="select-wrapper"
     >
       <button
         onClick={handleBtnClick}
@@ -90,6 +91,7 @@ export default function MenuSelect({
         type="button"
         role="combobox"
         className={styles.button}
+        data-testid="select-btn"
       >
         <span>{selectedOption.text}</span>
         <img alt="" src={chevron} className={styles.icon} />

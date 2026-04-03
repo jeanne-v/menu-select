@@ -8,6 +8,21 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  test: {
+    environment: "jsdom",
+    globals: true,
+    setupFiles: "./test/setup.js",
+    coverage: {
+      provider: "istanbul",
+      reporter: ["html"],
+      reportsDirectory: "./coverage",
+    },
+    css: {
+      modules: {
+        classNameStrategy: "non-scoped",
+      },
+    },
+  },
   build: {
     lib: {
       entry: resolve(__dirname, "lib/index.js"),
