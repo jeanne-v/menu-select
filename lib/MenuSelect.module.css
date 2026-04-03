@@ -29,6 +29,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 4px;
     height: var(--height);
     background-color: var(--bg-color);
     font-size: 1rem;
@@ -37,6 +38,12 @@
 
 .open .button {
     border-radius: 4px 4px 0 0;
+}
+
+.button span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .icon {
