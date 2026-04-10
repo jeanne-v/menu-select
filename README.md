@@ -1,6 +1,9 @@
+[![NPM Version](https://img.shields.io/npm/v/%40jeanne-v%2Fmenu-select)
+](https://www.npmjs.com/package/@jeanne-v/menu-select)
+
 # Menu Select
 
-This is a custom dropdown React component created for the HRnet project from OpenClassrooms' JS-React path.
+This is a custom dropdown React component created for the [HRnet project](https://github.com/jeanne-v/hrnet) from OpenClassrooms' JS-React path.
 
 ## Installation
 
