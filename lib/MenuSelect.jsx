@@ -3,6 +3,30 @@ import chevron from "./assets/chevron.svg";
 import clsx from "clsx";
 import styles from "./MenuSelect.module.css";
 
+/**
+ * A selectable option
+ * @typedef {object} Option
+ * @property {string} text - text displayed to the user
+ * @property {string} value - internal value of the option
+ */
+
+/**
+ * Component that allows users to select an option from a list of options
+ *
+ * @function MenuSelect
+ *
+ * @param {object} props
+ * @param {Option[]} props.options - possible dropdown options
+ * @param {Option} props.selectedOption - currently selected option
+ * @param {function} props.onOptionSelect - function that will be called when an option is selected
+ * @param {string|null} [props.labelledby=null] - id of the element that will label the dropdown
+ * @param {string} [props.focusedOptionBgColor="#4552FF"] - bg color of the currently focused option
+ * @param {string} [props.focusedOptionTextColor="#ffffff"] - text color of the currently focused option
+ * @param {"medium"|"small"} [props.size="medium"] - configures the size variant of the dropdown
+ * @param {string} [props.className] - additional classes to add to the custom dropdown <div> container
+ * @returns {JSX.Element}
+ */
+
 export default function MenuSelect({
   options,
   selectedOption,
