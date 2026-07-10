@@ -1,7 +1,7 @@
 {
   "name": "@jeanne-v/menu-select",
   "private": false,
-  "version": "2.0.3",
+  "version": "2.0.4",
   "author": "jeanne-v",
   "description": "Custom dropdown React component",
   "keywords": [
